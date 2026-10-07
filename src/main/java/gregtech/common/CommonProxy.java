@@ -21,6 +21,7 @@ import gregtech.api.unification.ore.StoneType;
 import gregtech.api.unification.stack.ItemMaterialInfo;
 import gregtech.api.util.AssemblyLineManager;
 import gregtech.api.util.GTLog;
+import gregtech.api.util.Mods;
 import gregtech.common.blocks.*;
 import gregtech.common.items.MetaItems;
 import gregtech.common.items.ToolItems;
@@ -35,6 +36,7 @@ import gregtech.common.pipelike.laser.ItemBlockLaserPipe;
 import gregtech.common.pipelike.optical.BlockOpticalPipe;
 import gregtech.common.pipelike.optical.ItemBlockOpticalPipe;
 import gregtech.integration.groovy.GroovyScriptModule;
+import gregtech.integration.jei.basic.OreByProduct;
 import gregtech.loaders.MaterialInfoLoader;
 import gregtech.loaders.OreDictionaryLoader;
 import gregtech.loaders.recipe.CraftingComponent;
@@ -219,7 +221,12 @@ public class CommonProxy {
         for (IGTTool tool : ToolItems.getAllTools()) {
             registry.register(tool.get());
         }
-
+        
+        if (Mods.JustEnoughItems.isModLoaded())
+        {
+        	OreByProduct.addOreByProductPrefix(OrePrefix.rawOre);
+        }
+        
         GTRecipeManager.preLoad();
 
         registry.register(createItemBlock(MACHINE, MachineItemBlock::new));
