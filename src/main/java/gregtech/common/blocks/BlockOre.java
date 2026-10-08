@@ -1,10 +1,6 @@
 package gregtech.common.blocks;
 
-<<<<<<< HEAD
-=======
 import gregtech.api.GTValues;
-import gregtech.api.GregTechAPI;
->>>>>>> 7bed7c622 (Raw Ores implementation)
 import gregtech.api.items.toolitem.ToolClasses;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
